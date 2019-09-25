@@ -23,5 +23,6 @@ public class PipesSpamer : MonoBehaviour
     {
         Instantiate(prefabPipe, transform);
         
+        
     }
 }

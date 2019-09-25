@@ -6,17 +6,25 @@ using UnityEngine.UI;
 
 public class Pajaro : MonoBehaviour
 {
-    public int puntuacion = 0;
+    //********************************************************
+    //Zona de declaracion de variables y llamada a componentes
+    //********************************************************
     Rigidbody rb;
+    AudioSource audioSource;// Audio Source
+    public int puntuacion = 0;
     public int fuerza = 650;
     public Text txtPuntuacion;
-    [SerializeField] GameObject prefabSangre; // Sistema de particulas de explosion del pollo 
     //SerialzeField permite modificacion en el editor
+    [SerializeField] GameObject prefabSangre; // Sistema de particulas de explosion del pollo 
+    [SerializeField] AudioClip sonidoAlas;
+    [SerializeField] AudioClip sonidoPuntos;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
             
     }
         
@@ -35,7 +43,9 @@ public class Pajaro : MonoBehaviour
 
     void Saltar()
     {
+        //rb.AddForce(new Vector3, 0 * fuerza);
         rb.AddForce(Vector3.up * fuerza);
+        audioSource.PlayOneShot(sonidoAlas);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -47,10 +57,10 @@ public class Pajaro : MonoBehaviour
 
     private void Morir()
     {
+
         Instantiate(prefabSangre, transform.position, transform.rotation); //Instaciamos la sangre y aplicamos el transform
         Destroy(gameObject); // Se destruye el personaje al chocar con las tuberias
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Limite") == true)
@@ -61,6 +71,7 @@ public class Pajaro : MonoBehaviour
         {
             puntuacion++;
             txtPuntuacion.text = puntuacion.ToString();
+            audioSource.PlayOneShot(sonidoPuntos);
         }
         
        

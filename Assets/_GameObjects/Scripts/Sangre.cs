@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sangre : MonoBehaviour
 {
-    private void OnDestroy()
+    void OnParticleSystemStopped()
     {
         GameManager.Reload();
     }

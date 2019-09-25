@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1569519876681555284}
   - component: {fileID: 8323165854648620717}
   - component: {fileID: 6077995621386295544}
-  - component: {fileID: -3573377846217709818}
   m_Layer: 0
   m_Name: prefabSangre
   m_TagString: Untagged
@@ -44,7 +43,7 @@ ParticleSystem:
   serializedVersion: 6
   lengthInSec: 0.15
   simulationSpeed: 1
-  stopAction: 3
+  stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -4851,15 +4850,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-3573377846217709818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3859194355691249131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0b4f17b58b40c4458b92dc66ea9446b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

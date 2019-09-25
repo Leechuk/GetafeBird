@@ -18,6 +18,7 @@ public class Pajaro : MonoBehaviour
     [SerializeField] GameObject prefabSangre; // Sistema de particulas de explosion del pollo 
     [SerializeField] AudioClip sonidoAlas;
     [SerializeField] AudioClip sonidoPuntos;
+    [SerializeField] GameObject botonReload;
     
 
     // Start is called before the first frame update
@@ -43,8 +44,8 @@ public class Pajaro : MonoBehaviour
 
     void Saltar()
     {
-        //rb.AddForce(new Vector3, 0 * fuerza);
-        rb.AddForce(Vector3.up * fuerza);
+        //rb.AddForce(Vector3.up * 5); asignacion de velocidad puntual o constante
+        rb.AddForce(Vector3.up * fuerza);//0,1,0
         audioSource.PlayOneShot(sonidoAlas);
     }
 
@@ -58,7 +59,9 @@ public class Pajaro : MonoBehaviour
     private void Morir()
     {
 
+        botonReload.SetActive(true);
         Instantiate(prefabSangre, transform.position, transform.rotation); //Instaciamos la sangre y aplicamos el transform
+        GameManager.playing = false;
         Destroy(gameObject); // Se destruye el personaje al chocar con las tuberias
     }
     private void OnTriggerEnter(Collider other)

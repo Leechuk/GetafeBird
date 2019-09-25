@@ -21,8 +21,11 @@ public class PipesSpamer : MonoBehaviour
 
     void SpawnPipe()
     {
-        Instantiate(prefabPipe, transform);
+        if (GameManager.playing == true)
+        {
+           Instantiate(prefabPipe, transform);
+        }
         
-        
+                
     }
 }

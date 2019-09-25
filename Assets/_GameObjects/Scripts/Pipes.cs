@@ -13,15 +13,21 @@ public class Pipes : MonoBehaviour
     {
         //Random de las tuberias para que aparezcan en diferente posicion
         //transform.Translate(0, Random.Range(rango* -1, rango), 0);
+        
         Vector3 altura = new Vector3(0, Random.Range(rango * -1, rango), 0);
         transform.Translate(altura);
-        
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.back * Time.deltaTime * speed);
+        if(GameManager.playing == true)
+        {
+            transform.Translate(Vector3.back * Time.deltaTime * speed);
+        }
+       
 
     }
 

@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement; //metodo para cargar libreria para gestionar 
 
 public class GameManager : MonoBehaviour
 {
-    
+
+    public static bool playing = false;
+
+
     public static void Reload()
     {
         SceneManager.LoadScene(0);// recarga de la escena

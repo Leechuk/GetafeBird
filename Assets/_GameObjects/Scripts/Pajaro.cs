@@ -21,7 +21,7 @@ public class Pajaro : MonoBehaviour
     [SerializeField] GameObject botonReload;
     
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -30,7 +30,7 @@ public class Pajaro : MonoBehaviour
     }
         
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
